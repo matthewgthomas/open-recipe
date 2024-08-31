@@ -13,7 +13,7 @@ class Controller:
         Makes sure that the required directories are set up and that we have a copy
         of the recipes.csv file downloaded
         """
-        directory = "../data/input"
+        directory = "data/input"
         filename = "recipes.csv"
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -38,12 +38,12 @@ class Controller:
         process = CrawlerProcess({
             'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
             'FEED_FORMAT': "json",
-            'FEED_URI': "../data/output/" + datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + ".json"
+            'FEED_URI': "data/output/" + datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + ".json"
         })
 
         # Start crawling
         data = []
-        process.crawl(spider, sample=sample)
+        process.crawl(GoodFoodSpider, sample=sample)
         process.start()
         if verbose:
             print(data)

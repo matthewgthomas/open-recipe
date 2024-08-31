@@ -6,3 +6,5 @@ data/
 *.json
 
 # Other
+.Rproj.user
+.DS_Store

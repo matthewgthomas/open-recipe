@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import csv
-from src.recipe import Recipe, Nutrition
+from recipe import Recipe, Nutrition
 
 
 def get_urls_from_data(data_path: str, sample):
@@ -33,7 +33,7 @@ class GoodFoodSpider(scrapy.Spider):
 
     def __init__(self, sample=0, **kwargs):
         super().__init__(**kwargs)
-        self.start_urls = get_urls_from_data("../data/input/recipes.csv", sample)['bbc']
+        self.start_urls = get_urls_from_data("data/input/recipes.csv", sample)['bbc']
 
     def parse(self, response):
         # Information from header includes title, author, cook time, difficulty, servings
